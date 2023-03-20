@@ -1,5 +1,6 @@
 package com.example.hilt_example.di
 
+import android.app.Application
 import com.example.hilt_example.data.remote.MyApi
 import com.example.hilt_example.data.repository.MyRepositoryImpl
 import com.example.hilt_example.domain.repository.MyRepository
@@ -25,7 +26,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMyRepository(api: MyApi): MyRepository {
-        return MyRepositoryImpl(api)
+    fun provideMyRepository(api: MyApi, app: Application): MyRepository {
+        return MyRepositoryImpl(api, app)
     }
 }
